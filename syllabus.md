@@ -11,3 +11,6 @@
 2. Why This Matters
 3. Magic Pixies For All!
 4. Everyone Gets Parts!
+5. Let's Talk Power!
+6. Let's Build An Arduino!
+
