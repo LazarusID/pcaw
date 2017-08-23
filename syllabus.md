@@ -9,11 +9,21 @@
 ### Some Things In A List
 1. Introductions
 2. Why This Matters
-3. Magic Pixies For All!
+3. Magic Pixies For All!  (A Frank Conversation About Issues, Power Issues)
 4. Everyone Gets Parts!
-5. Let's Talk Power!
-6. Let's Build An Arduino!
-7. Blinking Lights!
-8. So What Good Is This?
-9. How To Program An Arduino!
-10. Lets Program An Arduino!
+5. Let's Build An Arduino!
+6. Blinking Lights!
+7. So What Good Is This?
+8. How To Program An Arduino!  (Clay - Makefiles and such!)
+9. Lets Program An Arduino!
+
+
+### Loose Ideas
+1. Button presses
+2. Motors!  (Clay!)
+3. Sound!  (Buzzers)  (PWM)
+4. Wireless!  (nRF24)
+5. TDD
+6. OLED Displays
+7. The Unholy Choir (Sound + nRF24)
+8. ESP8266/01 & The Cloud
