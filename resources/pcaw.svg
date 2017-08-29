@@ -9,10 +9,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   viewBox="0 0 826.03 715.3"
+   viewBox="0 0 1423.6463 1232.7866"
    id="svg3987"
    sodipodi:docname="pcaw.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   width="1423.6464"
+   height="1232.7866">
   <metadata
      id="metadata3991">
     <rdf:RDF>
@@ -39,8 +41,8 @@
      id="namedview3989"
      showgrid="false"
      inkscape:zoom="0.41914341"
-     inkscape:cx="-436.69595"
-     inkscape:cy="494.33869"
+     inkscape:cx="891.29399"
+     inkscape:cy="630.14971"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -51,8 +53,8 @@
        id="h"
        x1="1472.1"
        x2="1869.3"
-       y1="380.61"
-       y2="807.91"
+       y1="380.60999"
+       y2="807.90997"
        gradientUnits="userSpaceOnUse">
       <stop
          stop-color="#f75009"
@@ -67,8 +69,8 @@
        id="i"
        x1="1903.9"
        x2="1973.4"
-       y1="495.14"
-       y2="612.29"
+       y1="495.14001"
+       y2="612.28998"
        gradientUnits="userSpaceOnUse">
       <stop
          stop-color="#7f7e96"
@@ -83,7 +85,7 @@
        id="j"
        x1="1704.4"
        x2="1757.7"
-       y1="442.7"
+       y1="442.70001"
        y2="350.56"
        gradientUnits="userSpaceOnUse">
       <stop
@@ -99,8 +101,8 @@
        id="k"
        x1="1754"
        x2="1829"
-       y1="464.83"
-       y2="363.82"
+       y1="464.82999"
+       y2="363.82001"
        gradientUnits="userSpaceOnUse">
       <stop
          stop-color="#ed790a"
@@ -113,7 +115,7 @@
     </linearGradient>
     <filter
        id="g"
-       color-interpolation-filters="sRGB">
+       style="color-interpolation-filters:sRGB">
       <feGaussianBlur
          stdDeviation="5.9288932"
          id="feGaussianBlur3915" />
@@ -122,7 +124,7 @@
        id="l"
        x1="1501.6"
        x2="1919.9"
-       y1="381.51"
+       y1="381.51001"
        y2="741.13"
        gradientUnits="userSpaceOnUse">
       <stop
@@ -138,7 +140,7 @@
          id="stop3922" />
     </linearGradient>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter4047">
       <feColorMatrix
@@ -149,7 +151,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
+     inkscape:label="Layer 2"
+     transform="translate(1327.9899,381.67559)">
     <circle
        style="fill:#999999"
        id="path4866"
@@ -202,7 +205,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer1"
-     inkscape:label="Layer 1">
+     inkscape:label="Layer 1"
+     transform="translate(1327.9899,381.67559)">
     <g
        transform="matrix(1.4362385,0,0,1.4362385,-2916.4802,-590.70685)"
        id="g3985"
