@@ -11,8 +11,8 @@
 2. Why This Matters
 3. Magic Pixies For All!  (A Frank Conversation About Issues, Power Issues)
 4. Everyone Gets Parts!
-  a. Breadboards And How They Route Pixies
-  b. Metering Multiple Things
+    1. Breadboards And How They Route Pixies
+    2. Metering Multiple Things
 5. Let's Build An Arduino!
 6. Blinking Lights!
 7. So What Good Is This?
