@@ -23,7 +23,7 @@
 10. Lunch Here-ish?
 11. A Post-Lunch Talk On TDD
 12. Sound!  (Buzzers!  PWM!)
-    1. PWM
+    1. PWM Me ASAP
     2. How To Make More Sound (Amplifier)
     3. Exercise - Play Me A Song
 13. Wireless!
