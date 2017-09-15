@@ -29,7 +29,7 @@
     3. Exercise - Play Me A Song
 13. Wireless!
     1. Options For Fewer Wires
-    2. nRF24 - Not The Option We Want, But The Option We Deserve
+    2. nRF24 - Not The Wireless We Want, But The Wireless We Deserve
 14. Exercise - The Unholy Choir
 
 ### Loose Ideas
