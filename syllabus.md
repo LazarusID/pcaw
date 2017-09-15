@@ -18,7 +18,7 @@
 7. So What Good Is This?
 8. How To Program An Arduino!
     1. What's Under The Hood  (Clay - Makefiles and such!)
-    2. Set Up Our Environment
+    2. Set Up Our Environment  (Simpler than Makefiles)
 9. Exercise - Lets Program An Arduino!  (Do Your Own Morse Code Message)
 10. Lunch Here-ish?
 11. A Post-Lunch Talk On TDD
