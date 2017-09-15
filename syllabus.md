@@ -27,7 +27,7 @@
     2. How To Make More Sound (Amplifier)
     3. Exercise - Play Me A Song
 13. Wireless!
-    1. A Brief Survey Of Less Wires
+    1. Options For Fewer Wires
     2. nRF24
 14. Exercise - The Unholy Choir
 
