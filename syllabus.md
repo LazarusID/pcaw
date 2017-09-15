@@ -19,6 +19,7 @@
 8. How To Program An Arduino!
     1. What's Under The Hood  (Clay - Makefiles and such!)
     2. Set Up Our Environment  (Simpler than Makefiles)
+    3. USB to Serial Adapters (CP2102)
 9. Exercise - Lets Program An Arduino!  (Do Your Own Morse Code Message)
 10. Lunch Here-ish?
 11. A Post-Lunch Talk On TDD
