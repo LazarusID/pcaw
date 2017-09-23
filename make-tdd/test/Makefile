@@ -1,25 +1,28 @@
-TEST_SRC=$(wildcard test_*.c)
-TEST_BASE=$(basename $(TEST_SRC))
-TEST_OBJ=$(addsuffix .o, $(TEST_BASE))
+CFLAGS=-I../mock -I../src -I../unity -I../machine -std=c99 -g -Werror
+LDFLAGS=-L../unity -lunity
+VPATH=../mock:../src
 
-VPATH=../src
+CONTROLLER_OBJS=test_mock.o test_controller.o TestGroupRunner.o runAllTests.o
+CONTROLLER_SUT=controller.o
+CONTROLLER_MOCKS=mock_transition.o mock_timer.o mock_motor.o mock_switch.o mock.o
 
-MOCK_LIB=-L../mock -lmocksystem
+TRANSITION_OBJS=test_transition.o TestTransitionRunner.o runTransitionTests.o
+TRANSITION_SUT=state_transition.o
+TRANSITION_MOCKS=mock_motor.o mock_switch.o mock_timer.o mock.o
 
-CHECK_FLAGS = `pkg-config --cflags check`
-CHECK_LIBS = `pkg-config --libs check`
+MOCKS=mock_motor.o mock_switch.o mock_timer.o mock.o
 
-LIBS=$(MOCK_LIB) $(CHECK_LIBS) -g
-CFLAGS=$(CHECK_FLAGS) -I../src -I../mock
+all: test_controller test_transition
+	./test_controller
+	./test_transition
 
-SUT=server.o
+test_controller: $(CONTROLLER_OBJS) $(CONTROLLER_SUT) $(CONTROLLER_MOCKS)
+	gcc $^ -o $@ $(LDFLAGS)
 
-all: unit_tests
-	./unit_tests
-
-unit_tests: $(TEST_OBJ) $(SUT) testmain.o
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+test_transition: $(TRANSITION_OBJS) $(TRANSITION_SUT) $(TRANSITION_MOCKS)
+	gcc $^ -o $@ $(LDFLAGS)
 
 clean:
 	rm -f *.o
-	rm -f unit_tests
+	rm -f test_controller
+	rm -f test_transition

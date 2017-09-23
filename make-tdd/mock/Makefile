@@ -2,8 +2,7 @@ SRC=$(wildcard *.c)
 BASES=$(basename $(SRC))
 OBJS=$(addsuffix .o, $(BASES))
 
-CFLAGS=-g
-
+CFLAGS=-g -I../machine -I../src
 
 libmocksystem.a: $(OBJS)
 	ar rc $@ $^
