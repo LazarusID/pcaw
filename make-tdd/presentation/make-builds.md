@@ -23,7 +23,7 @@ Two Options
 ---
 ## A Couple of Examples
 
-  - [A Simple Makefile](../mock/Makefile)
-  - [OMG WTF](../src/Makefile)
+  - A Simple Makefile -> ../mock/Makefile
+  - OMG WTF -> ../src/Makefile
 ---
 ## Let's See It Work
