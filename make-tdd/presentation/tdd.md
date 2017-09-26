@@ -59,6 +59,20 @@ TEST(Controller, setup_byDefault_setsLastCheckedToCurrentTimer) {
   TEST_ASSERT_EQUAL(75, MOTOR_STATE.last_check);
 }
 ```
+???
+This is a good example of the Arrange, Execute, Assert pattern for tests
+---
+name: abstractionftw
+class: middle
+# Abstract Away Your Actions to Hide System Calls
+
+* Separate your program logic from the hardware control.
+
+* Write tests of your program logic first, to capture your intent.
+
+* Testing of implementation can be skipped if the hardware control functions are thin wrappers around system calls.
+???
+Good example of the clean interface this provides in `src/state_transition.c`
 ---
 name: systemcallsarebad
 class: center middle
@@ -69,19 +83,49 @@ Sometimes we need a *test double*.
 It's like a stunt double, but for your tests.
 
 Link them in before system libraries, your test doubles are called first.
+
+???
+Look at a simple mock, such as in `mock/mock_motor.c`
 ---
 name: testdoubleflavors
 class: right
 # Test Doubles In A Rainbow of Fruit Flavors!
 
 --
+count: false
 ## Stubs
 A simple function that can be linked in, but does nothing.
 
 --
+count: false
 ## Mocks
 An object which can respond to actions from the system under test.
 
 --
+count: false
 ## Fake
 An object which has the same interface as the real object, but a simpler implementation, such as an in memory database for a remote one.
+
+---
+name: usingtestdoubles
+# When Do I Use a Test Double?
+
+* When I am calling a system function I don't have on my build system.
+
+* When I am calling a system function that I need to control the return value.
+
+* When calling a function would introduce a dependency in my test unrelated to what I am testing.
+
+* When I need to know the function I'm testing called another function.
+
+---
+name: creating
+# How Do I Write a Mock
+
+Mocks have a few properties:
+
+* An object with the same interface as the object I am mocking.
+
+* Setup functions or methods to control the behavior of the mock when it is called.
+
+* Inspection functions or methods to examine our interactions with the mock.
