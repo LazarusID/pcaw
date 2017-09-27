@@ -130,3 +130,11 @@ clean:
 ---
 class: center middle
 # Let's See It Work
+---
+class: center middle
+# Thank You
+
+To see full examples you can download the repo (with this presentation) from
+GitHub:
+
+`http://github.com/LazarusID/pcaw`

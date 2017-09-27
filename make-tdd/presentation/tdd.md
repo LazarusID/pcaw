@@ -218,4 +218,10 @@ name: thankyou
 class: middle center
 # Thank You
 
-For more information sign up for my mailing list at `http://claydowling.com/subscribe`
+For more information sign up for my mailing list at 
+
+`http://claydowling.com/subscribe`
+
+Example Application with Tests
+
+`http://github.com/LazarusID/pcaw`
