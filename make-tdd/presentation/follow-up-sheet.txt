@@ -1,0 +1,6 @@
+Thanks to everyone who attended the Prairie.Code Arduino Workshop!  We had a
+lot of fun building circuits and making them do fun things with you.
+
+The example repository we used is at http://github.com/LazarusID/pcaw
+
+
