@@ -70,41 +70,35 @@ class: middle
 
 * Write tests of your program logic first, to capture your intent.
 
-* Testing of implementation can be skipped if the hardware control functions are thin wrappers around system calls.
+* We don't need to test the hardware control functions if they're just a pass-through wrapper around a system call.
 ???
 Good example of the clean interface this provides in `src/state_transition.c`
 ---
-name: systemcallsarebad
+name: simplifiedapplogic
+# A Bit of Program Logic
+```c
+void state_bottom(void) {
+  MOTOR_STATE.direction = UP;
+  motor_down_off();
+  timer_wait(1);
+  motor_up_on();
+  MOTOR_STATE.last_check = timer_value();
+  motor_speed_set(MOTOR_SPEED);
+}
+```
+---
+name: notcallingsystemcalls
 class: center middle
-# Wait, My System Doesn't Have a millis() Function!
+# How Not To Call System Calls
 
 Sometimes we need a *test double*.
 
 It's like a stunt double, but for your tests.
 
-Link them in before system libraries, your test doubles are called first.
+Look just like the real function, but don't actually affect hardware.
 
 ???
 Look at a simple mock, such as in `mock/mock_motor.c`
----
-name: testdoubleflavors
-class: right
-# Test Doubles In A Rainbow of Fruit Flavors!
-
---
-count: false
-## Stubs
-A simple function that can be linked in, but does nothing.
-
---
-count: false
-## Mocks
-An object which can respond to actions from the system under test.
-
---
-count: false
-## Fake
-An object which has the same interface as the real object, but a simpler implementation, such as an in memory database for a remote one.
 
 ---
 name: usingtestdoubles
@@ -119,13 +113,109 @@ name: usingtestdoubles
 * When I need to know the function I'm testing called another function.
 
 ---
-name: creating
-# How Do I Write a Mock
+name: arrangingmocks
+# Functions for Arranging
+```c
+#define WILL_RETURN_MAX 20
 
-Mocks have a few properties:
+unsigned long will_return[WILL_RETURN_MAX];
+int WILL_RETURN_IDX = 0;
 
-* An object with the same interface as the object I am mocking.
+void timer_value_will_return(int num_values, ...) {
+    va_list valist;
+    int i;
 
-* Setup functions or methods to control the behavior of the mock when it is called.
+    for (i = 0; i < WILL_RETURN_MAX; ++i) {
+        will_return[i] = 0;
+    }
 
-* Inspection functions or methods to examine our interactions with the mock.
+    va_start(valist, num_values);
+    for (i = 0; i < num_values && i < WILL_RETURN_MAX; ++i) {
+        will_return[i] = va_arg(valist, unsigned long);
+    }
+    va_end(valist);
+    WILL_RETURN_IDX = 0;
+}
+```
+???
+This function accepts a variable length list of values which will be returned by the timer_value function.
+
+The va_start and va_arg semantics are a bit odd at first, but man pages provide examples and explain usage well enough to make this easy.
+---
+name: executingmocks
+class: middle
+# Functions for Executing
+
+## The Actual Function
+```c
+unsigned long timer_value(void) { return millis(); }
+```
+
+## The Mock Function
+```c
+unsigned long timer_value(void) {
+    mock_register_call(timer_value);
+    return will_return[WILL_RETURN_IDX++];
+}
+```
+???
+mock_register_call is part of a mocking library I created for this project.  You are free to use this library for your own project, or to write a better one.
+---
+name: checkingmocks
+# Asserting Mocks Were Called
+
+```c
+TEST(Transition, stateBottom_byDefault_setsLastCheckedAfterTimerWait) {
+  timer_value_will_return(1, 57);
+  state_bottom();
+  TEST_ASSERT_TRUE(mock_called_inorder(2, timer_wait, timer_value));
+  TEST_ASSERT_EQUAL(57, MOTOR_STATE.last_check);
+}
+```
+???
+Note the cunning use of `timer_value_will_return()`
+
+`mock_called_inorder()` is another function from my mocking library.  It will see if the mocks listed were called in the order you listed them.
+---
+name: putingittogether
+class: right
+# Putting It All Together
+
+Abstract each logical action to a function.
+
+Create a mock for each logical action function.
+
+Test program logic.
+
+Make main test runner return non-zero if there are failed tests.
+
+Make buildof your program(s) dependent upon successful tests
+---
+# My Project Makefile
+```make
+.PHONY: all clean mock test src package framework unity
+
+all: src
+
+framework:
+	make -C framework
+
+unity:
+	make -C unity
+
+mock:
+	make -C mock
+
+test: mock unity
+	make -C src clean
+	make -C test
+
+src: test framework
+	make -C src
+```
+---
+name: thankyou
+class: middle center
+# Thank You
+
+For more information sign up for my mailing list at `http://claydowling.com/subscribe`
