@@ -1,6 +1,126 @@
 Thanks to everyone who attended the Prairie.Code Arduino Workshop!  We had a
 lot of fun building circuits and making them do fun things with you.
 
-The example repository we used is at http://github.com/LazarusID/pcaw
+The example repository we used in the presentations is at
+http://github.com/LazarusID/pcaw  The presentations are also there in the
+folder make-tdd/presentation
+
+# Make
+
+The build tool used in the demo is GNU Make.  It is available for nearly every
+common workstation operating system, and is the default on Linux and OSX.
+On windows, you will get Make if you also install the GCC compiler, but it
+will have a name which identifies the toolchain it comes from, rather than
+the more friendly "make" from Unix land.
+
+Lots of information about make can be found at
+https://www.gnu.org/software/make including excellent documentaion.  The
+tutorial is invaluable for learning how to get the most out of Make.
+
+Another variant of Make is BSD Make.  You'll find this on FreeBSD, OpenBSD
+and NetBSD in particular.  It operates on the same principles, but some of
+the features I included in the demo aren't supported.  On these platforms
+BSD Make comes for free if you install the compiler packages.
+
+# Other Build Systems
+
+There are other build tools out there, and they're worth checking out.  Many
+of them are simply tools to generate Makefiles, but their syntax is easier
+to understand.  The simplicity comes at a price though: using the build
+system to do other things besides build applications (like uploading to your
+development board) is harder.
+
+## CMake
+
+CMake (https://cmake.org/) is my favorite of the bulid tools that aren't
+Make.  Rather than having specific commands to accomplish the goal of a
+target, you declare your intentions.  CMake will generally create the
+correct commands.
+
+## Autotools
+
+Autotools is a venerable player in the field of build tools.  You can get
+more information at https://www.gnu.org/software/automake including
+documentation and how to install it on your system.  Autotools will generate
+a configure script and a compact package which you can use to distribute
+your software.
+
+The upside of Autotools is that its designed to be very adaptive to
+different build environments.  It will do its best to make your code
+buildable even on obscure systems.  The resulting build is also very well
+suited to cross compiling.  In fact, even if you don't intend to distribute
+your software, using Autotools gives you a big advantage because it will
+handle most cross compilation complexities for you.
+
+The downside of Autotools is that they are confusing, overly complicated
+because they try to be all things to all people, and the documentation does
+very little to make it obvious what you should do to accomplish your goals.
+You can find good tutorials via Google.
+
+# Books
+
+## 21st Century C
+
+http://amzn.to/2fzNKYQ
+
+A lot of us learned C in school.  The problem with that is that for most
+professors their only other occupation was Student.  So they may not be
+current on recent trends (by which I mean occurences of the last two
+decades) in software development.
+
+This book does a good job of bringing you up to speed on the more recent
+developments in C.  Since what most people learn in C89 (a.k.a. ANSI C),
+there's a lot of change that has taken place.  The language has grown to be
+easier to use and maintain.  This book does a good job of teaching you about
+changes in both the language and the C ecosystem.
+
+## Test Driven Development for Embedded C
+
+http://amzn.to/2wY0SyI
+
+This book by James Grenning was my introduction to writing embedded C, and
+showed me that what I had feared as complex and strange was really just the
+C language that I had been using for a couple of decades.  Most of what I
+showed you concerning testing embedded code had its start in this book.
+
+## The C++ Programming Language
+
+http://amzn.to/2yJ0lxB
+
+Although all of the examples we showed during our workshop were in C,
+there's no reason that you can't have the joy of object oriented development
+in your embedded work.  This book is expensive, but it's also probably the
+finest programming text I have ever read.  It will make the intimidating
+language of C++ seem like a good beginner language, because it is taught
+with great skill.
+
+For all its fearsome reputation, when I want to get something done quickly
+and well, C++ is my first choice.  I blame that entirely on this book.
+Expensive, but more than worth the money for the joy and productivity it has
+brought into my profesional and personal life.
 
 
+## The Art of Electronics
+
+http://amzn.to/2wXRaqW
+
+Known more commonly by the authors' last names, Horowitz and Hill, this is
+*the* book to own and read if you really want to learn about electronics.  I
+purchased mine in 1993 for a senior lab class, and refused to part with it.
+It has everything you could ever want to know about building electronics.
+The book is priced like a text book (in fact the price hasn't changed much
+since I was a student), and it's worth the money.
+
+# Testing Tools
+
+In addition to the Unity testing suite that's part of the example project, I
+have a short list and discussion of some other testing suites that I have
+used at http://claydowling.com/blog:embedded_testing_suites
+
+# Shameless Shill
+
+If you are working with embedded code at work, and would like help
+implementing some of the things we talked about in the workshop, Nate and I,
+or possibly better looking and more qualified people, can be hired to help
+your team improve their software craftsmanship.  You can reach us via email
+to cdowling@pillartechnology.com or nschlehlein@pillartechnology.com
