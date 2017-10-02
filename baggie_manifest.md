@@ -2,19 +2,18 @@
 
 Below are the contents of each baggie.
 
-## Power Bag!
+## PWR
 
 1. 7805 Voltage Regulator
 2. 
 
-
-## Arduino Bag!
+## BRAINS
 
 1. Atmel AT328P
 
-## Comms Bag!
+## TALK
 
-## Noisy Bag!
+## NOISE
 
-## Wireless Bag!
+## RADIO
 
