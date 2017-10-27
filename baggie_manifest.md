@@ -15,7 +15,7 @@ Below are the contents of each baggie.
 1. 1x momentary switch (reset)
 1. 1x 10k Ohm resistor
 1. 1x 1.2k Ohm resistor
-1. LED
+1. 1x LED
 
 ## TALK
 
